@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@layer components {
+	.flex-center {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.vazir-font {
+		font-family: Vazirmatn, sans-serif;
+	}
+
+	.page-wrapper {
+		min-height: 100vh;
+		display: grid;
+		gap: 20px;
+		grid-template-rows: auto;
+	}
+
+	.app_container {
+		width: 100%;
+		max-width: 1280px;
+		margin: 0 auto;
+		padding-inline: 17px;
+	}
+
+	@media (min-width: 768px) {
+		.app_container {
+			padding-inline: 24px;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.app_container {
+			padding-inline: 32px;
+		}
+	}
+
+	@media (min-width: 1280px) {
+		.app_container {
+			padding-inline: 40px;
+		}
+	}
+}
