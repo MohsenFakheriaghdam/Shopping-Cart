@@ -4,12 +4,188 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="output.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+		<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
 		<title>Shopify</title>
 	</head>
-	<body>
+	<body class="vazir-font bg-[#f4f6f6]">
 		<div class="page-wrapper">
 			<div class="app_container">
 				<!-- Your content goes here -->
+				<header class="mt-1.5 grid grid-cols-[auto_1fr_auto] grid-rows-2 items-center gap-2 rounded-xl bg-[#064c4e] px-2.5 py-3 lg:grid lg:grid-cols-[auto_1fr_auto] lg:items-center lg:px-4">
+					<!-- hambergur menu -->
+					<button onclick="openMenu()" class="md:hidden">
+						<i class="fa-solid fa-bars text-2xl text-white"></i>
+					</button>
+					<!-- header title -->
+					<h1 class="flex-center cursor-pointer text-xl font-medium text-white">Gromuse</h1>
+					<!-- search -->
+					<div class="order-3 col-span-3 col-start-1 row-start-2 h-9 w-full items-center gap-2 justify-self-center rounded-2xl bg-white px-2 lg:w-4/5">
+						<form class="flex h-full w-full items-center gap-2 rounded-2xl bg-white px-2">
+							<button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+							<input type="search" name="search" id="search-input" class="w-full border-none bg-white font-medium outline-none placeholder:text-sm" placeholder="Search for Grocery, Stores ...." required />
+						</form>
+					</div>
+					<!-- nav-links -->
+					<div class="hidden w-1/2 items-center justify-self-center md:flex">
+						<ul class="flex w-full items-center justify-between">
+							<a href="#" class=""><li class="font-bold text-white">Home</li></a>
+							<a href="#" class=""><li class="font-bold text-white">Shop</li></a>
+							<a href="#" class=""><li class="font-bold text-white">Favorites</li></a>
+							<a href="#" class=""><li class="font-bold text-white">Settings</li></a>
+						</ul>
+					</div>
+					<!-- shopping cart -->
+					<div class="ml-auto flex items-center gap-2 lg:ml-0 lg:justify-self-end">
+						<!-- cart -->
+						<div id="cartModal" class="flex-center relative h-8 w-8 cursor-pointer rounded-full bg-white">
+							<i class="fa-solid fa-cart-shopping text-[#064c4e]"></i>
+						</div>
+						<!-- user profile -->
+						<img src="/assets/img/profile.jpg" alt="profile" class="h-8 w-8 cursor-pointer rounded-full border-2 border-dotted border-[#baea6f]" />
+					</div>
+					<!-- Modal -->
+					<div id="modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 p-4">
+						<!-- Modal Content -->
+						<div class="flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-2xl bg-[#f4f6f6] shadow-2xl">
+							<!-- Header -->
+							<div class="flex items-center gap-3 border-b border-gray-200 p-5">
+								<button id="closeModal" class="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full transition hover:bg-white">
+									<i class="fa-solid fa-angle-left"></i>
+								</button>
+
+								<h2 class="text-xl font-bold">Shopping Cart</h2>
+							</div>
+
+							<div class="flex-1 space-y-4 overflow-y-auto p-5">
+								<!-- Item -->
+								<div class="grid grid-cols-[128px_1fr] gap-4 rounded-xl bg-white p-3 shadow-sm">
+									<!-- Image -->
+									<img src="/assets/img/images.jpg" alt="Italian Avocado" class="h-32 w-32 rounded-xl object-cover" />
+
+									<!-- Content -->
+									<div class="flex flex-col justify-between">
+										<h3 class="text-lg font-semibold">Italian Avocado</h3>
+
+										<div class="flex items-center justify-between">
+											<div class="flex items-center gap-3">
+												<button class="flex-center h-9 w-9 rounded-full bg-gray-100 transition hover:bg-gray-200">
+													<i class="fa-solid fa-plus"></i>
+												</button>
+
+												<span class="flex-center min-w-9 rounded-full bg-gray-100 px-3 py-2 font-semibold"> 3 </span>
+
+												<button class="flex-center h-9 w-9 rounded-full bg-gray-100 transition hover:bg-gray-200">
+													<i class="fa-solid fa-minus"></i>
+												</button>
+											</div>
+
+											<button class="flex h-9 w-9 items-center justify-center rounded-full text-red-500 transition hover:bg-red-50 hover:text-red-600">
+												<i class="fa-solid fa-trash"></i>
+											</button>
+										</div>
+
+										<span class="text-lg font-bold text-green-600"> $300 </span>
+									</div>
+								</div>
+
+								<!-- Item -->
+								<div class="grid grid-cols-[128px_1fr] gap-4 rounded-xl bg-white p-3 shadow-sm">
+									<img src="/assets/img/images.jpg" alt="Italian Avocado" class="h-32 w-32 rounded-xl object-cover" />
+
+									<div class="flex flex-col justify-between">
+										<h3 class="text-lg font-semibold">Italian Avocado</h3>
+
+										<div class="flex items-center justify-between">
+											<div class="flex items-center gap-3">
+												<button class="flex-center h-9 w-9 rounded-full bg-gray-100 transition hover:bg-gray-200">
+													<i class="fa-solid fa-plus"></i>
+												</button>
+
+												<span class="flex-center min-w-9 rounded-full bg-gray-100 px-3 py-2 font-semibold"> 1 </span>
+
+												<button class="flex-center h-9 w-9 rounded-full bg-gray-100 transition hover:bg-gray-200">
+													<i class="fa-solid fa-minus"></i>
+												</button>
+											</div>
+
+											<button class="flex h-9 w-9 items-center justify-center rounded-full text-red-500 transition hover:bg-red-50 hover:text-red-600">
+												<i class="fa-solid fa-trash"></i>
+											</button>
+										</div>
+
+										<span class="text-lg font-bold text-green-600"> $180 </span>
+									</div>
+								</div>
+							</div>
+
+							<!-- Footer -->
+							<div class="border-t border-gray-200 bg-white p-5">
+								<div class="mb-4 flex items-center justify-between">
+									<span class="text-lg font-semibold"> Total </span>
+
+									<span class="text-2xl font-bold text-green-600"> $480 </span>
+								</div>
+
+								<button class="w-full rounded-xl bg-green-600 py-3 font-semibold text-white transition hover:bg-green-700">Proceed to Checkout</button>
+							</div>
+						</div>
+					</div>
+				</header>
+
+				<!-- Overlay -->
+				<div id="mobile-menu" class="fixed inset-0 z-50 hidden bg-black/40">
+					<!-- Menu -->
+					<aside class="grid h-full w-72 -translate-x-full grid-rows-[auto_1fr_auto] bg-white shadow-2xl transition-transform duration-300" id="sidebar">
+						<!-- Header -->
+						<div class="flex items-center gap-4 border-b p-6">
+							<div class="flex h-14 w-14 items-center justify-center text-xl">
+								<img src="/assets/img/profile.jpg" alt="user-profile" class="rounded-full" />
+							</div>
+
+							<div>
+								<h2 class="font-bold">Welcome 👋</h2>
+								<p class="text-sm text-gray-500">Mohsen Fakheriaghdam</p>
+							</div>
+						</div>
+
+						<!-- Menu -->
+						<nav class="mt-4 flex flex-col gap-4 px-1.5">
+							<a href="#" class="flex items-center gap-4 rounded-xl bg-[#f4f6f6] px-6 py-4 font-medium transition hover:bg-green-50">
+								<i class="fa-solid fa-house w-6"></i>
+								Home
+							</a>
+
+							<a href="#" class="flex items-center gap-4 rounded-xl bg-[#f4f6f6] px-6 py-4 font-medium transition hover:bg-green-50">
+								<i class="fa-solid fa-bag-shopping w-6"></i>
+								Shop
+							</a>
+
+							<a href="#" class="flex items-center gap-4 rounded-xl bg-[#f4f6f6] px-6 py-4 font-medium transition hover:bg-green-50">
+								<i class="fa-solid fa-heart w-6"></i>
+								Favorites
+							</a>
+
+							<a href="#" class="flex items-center gap-4 rounded-xl bg-[#f4f6f6] px-6 py-4 font-medium transition hover:bg-green-50">
+								<i class="fa-solid fa-cart-shopping w-6"></i>
+								Cart
+							</a>
+
+							<a href="#" class="flex items-center gap-4 rounded-xl bg-[#f4f6f6] px-6 py-4 font-medium transition hover:bg-green-50">
+								<i class="fa-solid fa-gear w-6"></i>
+								Settings
+							</a>
+						</nav>
+
+						<!-- Footer -->
+						<div class="inset-x-6 px-1.5">
+							<button class="flex w-full items-center justify-center gap-2 rounded-xl bg-red-500 py-3 text-white transition hover:bg-red-600">
+								<i class="fa-solid fa-right-from-bracket"></i>
+								Logout
+							</button>
+						</div>
+					</aside>
+				</div>
 			</div>
 		</div>
 		<script src="/src/js/app.js"></script>
